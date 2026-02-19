@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import MainCalculator from "./pages/calculadora/MainCalculator";
 import { MyStatus } from "./pages/MyProfile/MyStatus";
+import { Test } from "./pages/Test/Test";
 
 export const RoutesComponent = () => {
   return (
@@ -39,6 +40,11 @@ export const RoutesComponent = () => {
                     Main Calculator
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/test">
+                    Test
+                  </Link>
+                </li>
 
                 <li className="nav-item">
                   <Link className="nav-link" to="/my-status">
@@ -55,6 +61,7 @@ export const RoutesComponent = () => {
         <Routes>
           <Route path="/" element={<MainCalculator />} />
           <Route path="/my-status" element={<MyStatus />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </div>
     </BrowserRouter>
