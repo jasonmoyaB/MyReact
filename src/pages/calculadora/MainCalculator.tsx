@@ -1,9 +1,8 @@
 export const MainCalculator = () => {
   return (
     <div>
-      Holaa yoo
+      Holaa sss
     </div>
   )
 }
 
-export default MainCalculator

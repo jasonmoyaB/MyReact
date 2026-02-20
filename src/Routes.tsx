@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import MainCalculator from "./pages/calculadora/MainCalculator";
 import { MyStatus } from "./pages/MyProfile/MyStatus";
 import { Test } from "./pages/Test/Test";
+import { MainCalculator } from "./pages/calculadora/MainCalculator";
+import { Name } from "./pages/Test/Name";
 
 export const RoutesComponent = () => {
   return (
@@ -51,6 +52,11 @@ export const RoutesComponent = () => {
                     My Status
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Name">
+                    List Names
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -62,6 +68,7 @@ export const RoutesComponent = () => {
           <Route path="/" element={<MainCalculator />} />
           <Route path="/my-status" element={<MyStatus />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/Name" element={<Name />} />
         </Routes>
       </div>
     </BrowserRouter>
