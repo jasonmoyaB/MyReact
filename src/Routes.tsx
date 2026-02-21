@@ -49,7 +49,7 @@ export const RoutesComponent = () => {
 
                 <li className="nav-item">
                   <Link className="nav-link" to="/my-status">
-                    My Status
+                    User Status
                   </Link>
                 </li>
                 <li className="nav-item">
