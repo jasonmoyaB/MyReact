@@ -48,3 +48,14 @@ CREATE DATABASE "MyFirstDB";
 
 # 5. Iniciar el servidor backend
 uvicorn main:app --reload
+
+
+
+
+# 6 mis puntos
+
+source ./venv/Scripts/activate
+pip install fastapi uvicorn sqlalchemy psycopg2-binary python-dotenv
+
+cd backend
+python -m uvicorn main:app --reload

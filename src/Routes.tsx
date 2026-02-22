@@ -3,6 +3,8 @@ import { MyStatus } from "./pages/MyProfile/MyStatus";
 import { Test } from "./pages/Test/Test";
 import { MainCalculator } from "./pages/calculadora/MainCalculator";
 import { Name } from "./pages/Test/Name";
+import { TareasPage } from "./pages/Tareas/ListTareas";
+import { TareasForm } from "./pages/Tareas/TareasForm";
 
 export const RoutesComponent = () => {
   return (
@@ -57,6 +59,11 @@ export const RoutesComponent = () => {
                     List Names
                   </Link>
                 </li>
+                 <li className="nav-item">
+                  <Link className="nav-link" to="/Tareas">
+                    Tareas
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -69,6 +76,8 @@ export const RoutesComponent = () => {
           <Route path="/my-status" element={<MyStatus />} />
           <Route path="/test" element={<Test />} />
           <Route path="/Name" element={<Name />} />
+          <Route path="/Tareas" element={<TareasPage />} />
+          <Route path="/Tareas/Crear" element={<TareasForm />} />
         </Routes>
       </div>
     </BrowserRouter>
