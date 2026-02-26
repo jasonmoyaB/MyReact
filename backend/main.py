@@ -38,7 +38,7 @@ def listar_tareas_endpoint(db: Session = Depends(get_db)):
 
 @app.delete("/tareas/{tarea_id}")
 def eliminar_tarea_endpoint(tarea_id: int, db: Session = Depends(get_db)):
-    tarea = db.query(Tarea).filter(Tarea.id == tarea_id).first()
+    tarea = db.query(Tarea).filter(Tarea.IdTarea == tarea_id).first()
     if tarea:
         db.delete(tarea)
         db.commit()
@@ -48,13 +48,13 @@ def eliminar_tarea_endpoint(tarea_id: int, db: Session = Depends(get_db)):
     
 @app.put("/tareas/{tarea_id}")
 def actualizar_tarea_endpoint(tarea_id: int, nombre: str, descripcion: str, fecha: date, db: Session = Depends(get_db)):
-    tarea = db.query(Tarea).filter(Tarea.id == tarea_id).first()
+    tarea = db.query(Tarea).filter(Tarea.IdTarea == tarea_id).first()
     if tarea:
-        tarea.nombre = nombre
-        tarea.descripcion = descripcion
-        tarea.fecha = fecha
+        tarea.NombreTarea = nombre
+        tarea.DescripcionTarea = descripcion
+        tarea.FechaTarea = fecha
         db.commit()
-        return {"message": "Tarea actualizada"}
+        return tarea
     else:
         return {"message": "Tarea no encontrada"}
 # ----- USUARIOS -----
