@@ -1,61 +1,128 @@
-# 1. Crear proyecto con Vite
-npm create vite@latest Parte1 -- --template react-ts
+# Parte 1 - Full Stack Application
 
-# 2. Entrar al directorio
-cd Parte1
+Aplicación full-stack construida con **React + TypeScript** en el frontend y **FastAPI + PostgreSQL** en el backend.
 
-# 3. Instalar dependencias del package.json
+##  Descripción
+
+Plataforma para gestionar usuarios, tareas y mascotas con una interfaz moderna y una API REST robusta.
+
+## 🛠️ Stack Tecnológico
+
+### Frontend
+- **React 19** - Librería UI
+- **TypeScript** - Tipado estático
+- **Vite** - Build tool rápido
+- **React Router v7** - Enrutamiento
+- **Bootstrap 5** - Estilos CSS
+
+### Backend
+- **FastAPI** - Framework web moderno
+- **SQLAlchemy** - ORM para bases de datos
+- **PostgreSQL** - Base de datos relacional
+- **Uvicorn** - Servidor ASGI
+
+##  Estructura del Proyecto
+
+```
+.
+├── src/                      # Código frontend (React + TypeScript)
+│   ├── pages/               # Páginas principales
+│   │   ├── calculadora/     # Página calculadora
+│   │   ├── MyProfile/       # Perfil de usuario
+│   │   ├── Tareas/          # Gestión de tareas
+│   │   └── Test/            # Componentes de prueba
+│   ├── components/          # Componentes reutilizables
+│   ├── services/            # Llamadas a API
+│   ├── interfaces/          # Tipos TypeScript
+│   ├── hooks/               # Hooks personalizados
+│   └── main.tsx
+├── backend/                  # Código backend (FastAPI + Python)
+│   ├── lib/                 # Lógica de negocio
+│   │   ├── models/          # Modelos de BD (SQLAlchemy)
+│   │   ├── tareas/          # Operaciones CRUD de tareas
+│   │   └── usuarios/        # Operaciones CRUD de usuarios
+│   ├── alembic/             # Migraciones de BD
+│   ├── main.py              # Entrada principal de FastAPI
+│   ├── database.py          # Configuración de BD
+│   └── requirements.txt      # Dependencias Python
+├── package.json             # Dependencias Node.js
+├── tsconfig.json           # Configuración TypeScript
+├── vite.config.ts          # Configuración Vite
+└── README.md               # Este archivo
+```
+
+##  Inicio Rápido
+
+### Requisitos Previos
+- Node.js 18+
+- Python 3.10+
+- PostgreSQL 13+
+
+### Frontend
+
+```bash
+# Instalar dependencias
 npm install
 
-# 4. Dependencias instaladas (según package.json):
-npm install react@^19.2.0 react-dom@^19.2.0 react-router-dom@^7.13.0
-npm install bootstrap@^5.3.8 cors@^2.8.6 dotenv@^17.3.1 express@^5.2.1 pg@^8.18.0
-
-# 5. Instalar devDependencies
-npm install --save-dev typescript@~5.9.3 vite@^8.0.0-beta.13 eslint typescript-eslint
-npm install --save-dev @vitejs/plugin-react-swc @types/react @types/react-dom @types/node
-
-# 6. Para iniciar desarrollo
+# Iniciar servidor de desarrollo
 npm run dev
-==================================================================================
-==================================================================================
-==================================================================================
-BACKEND (Python + FastAPI + PostgreSQL)
+```
 
-# 1. Crear entorno virtual de Python
-python -m venv venv
+El frontend estará disponible en `http://localhost:5173`
 
-# 2. Activar el entorno virtual
-# En Windows (PowerShell):
+### Backend
+
+```bash
+# Activar entorno virtual
+# Windows (PowerShell):
 .\venv\Scripts\Activate
 
-# En Windows (CMD):
+# Windows (CMD):
 venv\Scripts\activate
 
-# 3. Instalar dependencias de Python
-pip install fastapi
-pip install uvicorn
-pip install sqlalchemy
-pip install psycopg2-binary  # Para PostgreSQL
-pip install python-dotenv
+# Linux/Mac:
+source venv/bin/activate
 
-# 4. Crear la Base de Datos en PostgreSQL
-# Conectarse a PostgreSQL:
-psql -U postgres
+# Instalar dependencias
+pip install -r backend/requirements.txt
 
-# Ejecutar en PostgreSQL:
-CREATE DATABASE "MyFirstDB";
-
-# 5. Iniciar el servidor backend
-uvicorn main:app --reload
-
-
-
-
-# 6 mis puntos
-
-source ./venv/Scripts/activate
-pip install fastapi uvicorn sqlalchemy psycopg2-binary python-dotenv
-
+# Iniciar servidor
 cd backend
 python -m uvicorn main:app --reload
+```
+
+El backend estará disponible en `http://localhost:8000`
+
+## 🗄️ Configuración de Base de Datos
+
+```bash
+# Conectarse a PostgreSQL
+psql -U postgres
+
+# Crear la base de datos
+CREATE DATABASE "MyFirstDB";
+```
+
+## 📚 Endpoints Principales
+
+- **GET** `/users` - Obtener todos los usuarios
+- **POST** `/users` - Crear nuevo usuario
+- **GET** `/tareas` - Obtener todas las tareas
+- **POST** `/tareas` - Crear nueva tarea
+- **GET** `/pets` - Obtener todas las mascotas
+
+Documentación interactiva: `http://localhost:8000/docs`
+
+##  Notas
+
+- Las migraciones de BD se manejan con Alembic
+- El proyecto usa TypeScript strict mode
+- Bootstrap se utiliza para estilos responsive
+
+##  Autor
+
+Jason
+
+---
+
+**Última actualización:** Febrero 2026

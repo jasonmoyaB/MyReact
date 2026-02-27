@@ -5,13 +5,18 @@ import { MainCalculator } from "./pages/calculadora/MainCalculator";
 import { Name } from "./pages/Test/Name";
 import { TareasPage } from "./pages/Tareas/ListTareas";
 import { TareasForm } from "./pages/Tareas/TareasForm";
+import { users } from "./components/constants";
 
 export const RoutesComponent = () => {
   return (
     <BrowserRouter>
       <nav className="navbar bg-body-tertiary fixed-top">
         <div className="container-fluid">
-          <span className="navbar-brand">My first app in React</span>
+          <span className="navbar-brand">{users[0].name}
+            <img src={users[0].imageUrl} alt={users[0].name}
+            className="rounded-circle ms-2"
+            style={{ width: "30px", height: "30px" }} />
+          </span>
 
           <button
             className="navbar-toggler"

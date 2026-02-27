@@ -1,5 +1,15 @@
 const API_URL = "http://127.0.0.1:8000";
 
+// Función para convertir fecha de input a formato ISO sin problemas de zona horaria
+const formatFechaParaAPI = (fechaString: string): string => {
+  // Si recibimos una fecha del tipo "2026-02-26T12:34:56.000Z", extraer solo la fecha
+  if (fechaString.includes("T")) {
+    return fechaString.split("T")[0];
+  }
+  // Si es solo "2026-02-26", devolver tal cual pero con T00:00:00Z para UTC
+  return `${fechaString}T00:00:00Z`;
+};
+
 export const getTareas = async () =>{
     const response = await fetch(`${API_URL}/tareas`);
 
@@ -11,7 +21,8 @@ export const getTareas = async () =>{
 }
 
 export const createTarea = async (nombre: string, descripcion: string, fecha: string) => {
-    const response = await fetch(`${API_URL}/tareas?nombre=${nombre}&descripcion=${descripcion}&fecha=${fecha}`, {
+    const fechaFormato = formatFechaParaAPI(fecha);
+    const response = await fetch(`${API_URL}/tareas?nombre=${nombre}&descripcion=${descripcion}&fecha=${fechaFormato}`, {
         method: "POST"
     });
 
@@ -33,7 +44,8 @@ export const deleteTarea = async (id: number) => {
 }
 
 export const updateTarea = async (id: number, nombre: string, descripcion: string, fecha: string) => {
-    const response = await fetch(`${API_URL}/tareas/${id}?nombre=${nombre}&descripcion=${descripcion}&fecha=${fecha}`, {
+    const fechaFormato = formatFechaParaAPI(fecha);
+    const response = await fetch(`${API_URL}/tareas/${id}?nombre=${nombre}&descripcion=${descripcion}&fecha=${fechaFormato}`, {
         method: "PUT"
     });
     if(!response.ok){
