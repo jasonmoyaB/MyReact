@@ -1,11 +1,8 @@
-import React from 'react'
-
-const MainCalculator = () => {
+export const MainCalculator = () => {
   return (
     <div>
-      Holaa
+      Holaa sss
     </div>
   )
 }
 
-export default MainCalculator
