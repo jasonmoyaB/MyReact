@@ -1,4 +1,4 @@
-import { products } from "../../components/constants";
+import { animals, products } from "../../components/constants";
 import Counters from "./Counters";
 
 export const Test = () => {
@@ -17,7 +17,14 @@ export const Test = () => {
           </li>
         ))}
       </ul>
-
+      <h2 className="mt-4">Animales con su tipo</h2>
+      <ul>
+        {animals.map((animal) => (
+          <li key={animal.id} style={{ margin: "10px" }}>
+            {animal.name} - <strong>Tipo de especie:</strong> {animal.species}
+          </li>
+        ))}
+      </ul>
       <Counters />
     </div>
   );

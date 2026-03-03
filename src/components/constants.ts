@@ -37,3 +37,11 @@ export const users: User[] = [
     LastName: "Johnson",
   },
 ];
+
+export const animals = [
+  { id: 1, name: "Dog", species: "Canine" },
+  { id: 2, name: "Cat", species: "Feline" },
+  { id: 3, name: "Rabbit", species: "Leporidae" },
+  { id: 4, name: "Parrot", species: "Psittaciformes" },
+  { id: 5, name: "Hamster", species: "Cricetinae" },
+];

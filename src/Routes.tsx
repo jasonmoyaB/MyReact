@@ -6,6 +6,7 @@ import { Name } from "./pages/Test/Name";
 import { TareasPage } from "./pages/Tareas/ListTareas";
 import { TareasForm } from "./pages/Tareas/TareasForm";
 import { users } from "./components/constants";
+import Weather from "./pages/Weather/Weather";
 
 export const RoutesComponent = () => {
   return (
@@ -69,6 +70,11 @@ export const RoutesComponent = () => {
                     Tareas
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/weather">
+                    Weather
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -83,6 +89,7 @@ export const RoutesComponent = () => {
           <Route path="/Name" element={<Name />} />
           <Route path="/Tareas" element={<TareasPage />} />
           <Route path="/Tareas/Crear" element={<TareasForm />} />
+          <Route path="/weather" element={<Weather />} />
         </Routes>
       </div>
     </BrowserRouter>
