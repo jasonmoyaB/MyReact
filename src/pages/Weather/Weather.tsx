@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { OPENWEATHER_API_KEY } from "../../config/config";
 import type { WeatherData } from "../../interfaces/weather";
+import WeatherCard from "./WeatherCard";
 import "../../styles/Weather.css";
 
 const Weather = () => {
@@ -43,26 +44,22 @@ const Weather = () => {
   return (
     <div className={`weather-container ${isNight ? 'night' : 'day'}`}>
       <h1>CLIMA</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-        className="weather-input"
-        onKeyPress={(e) => e.key === 'Enter' && fetchWeather()}
-      />
-      <button onClick={fetchWeather} className="weather-button">
-        Get Weather
-      </button>
+      <div className="search-box">
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter city name"
+          className="weather-input"
+          onKeyPress={(e) => e.key === 'Enter' && fetchWeather()}
+        />
+        <button onClick={fetchWeather} className="weather-button">
+          Get Weather
+        </button>
+      </div>
       {loading && <p className="weather-loading">Loading...</p>}
       {error && <p className="weather-error">{error}</p>}
-      {weather && (
-        <div className="weather-info">
-          <h2>{weather.name}</h2>
-          <p className="weather-temp">{weather.main.temp}°C</p>
-          <p className="weather-description">{weather.weather[0].description}</p>
-        </div>
-      )}
+      {weather && <WeatherCard weather={weather} />}
     </div>
   );
 };

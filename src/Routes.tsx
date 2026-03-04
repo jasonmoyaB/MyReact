@@ -1,12 +1,14 @@
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import { MyStatus } from "./pages/MyProfile/MyStatus";
-import { Test } from "./pages/Test/Test";
-import { MainCalculator } from "./pages/calculadora/MainCalculator";
+// import { Test } from "./pages/Test/Test";
+import { Home } from "./pages/Home/Home";
 import { Name } from "./pages/Test/Name";
 import { TareasPage } from "./pages/Tareas/ListTareas";
 import { TareasForm } from "./pages/Tareas/TareasForm";
 import { users } from "./components/constants";
 import Weather from "./pages/Weather/Weather";
+import Crypto from "./pages/Crypto/Crypto";
+import Photos from "./pages/Photos/Photos";
 
 export const RoutesComponent = () => {
   return (
@@ -46,14 +48,14 @@ export const RoutesComponent = () => {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <Link className="nav-link" to="/">
-                    Main Calculator
+                    Home
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/test">
                     Test
                   </Link>
-                </li>
+                </li> */}
 
                 <li className="nav-item">
                   <Link className="nav-link" to="/my-status">
@@ -75,6 +77,16 @@ export const RoutesComponent = () => {
                     Weather
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/crypto">
+                    Crypto
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/photos">
+                    Photos
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -83,13 +95,15 @@ export const RoutesComponent = () => {
 
       <div className="container" style={{ marginTop: "80px" }}>
         <Routes>
-          <Route path="/" element={<MainCalculator />} />
+          <Route path="/" element={<Home />} />
           <Route path="/my-status" element={<MyStatus />} />
-          <Route path="/test" element={<Test />} />
+          {/* <Route path="/test" element={<Test />} /> */}
           <Route path="/Name" element={<Name />} />
           <Route path="/Tareas" element={<TareasPage />} />
           <Route path="/Tareas/Crear" element={<TareasForm />} />
           <Route path="/weather" element={<Weather />} />
+          <Route path="/crypto" element={<Crypto />} />
+          <Route path="/photos" element={<Photos />} />
         </Routes>
       </div>
     </BrowserRouter>
