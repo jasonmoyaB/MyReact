@@ -36,6 +36,14 @@ export const users: User[] = [
     age: 35,
     LastName: "Johnson",
   },
+  {
+    id: 4,
+    name: "Jason Moya",
+    email: "jason.moyabre.es@gmail.com",
+    imageUrl: "https://randomuser.me/api/portraits/men/3.jpg",
+    age: 32,
+    LastName: "Moya",
+  },
 ];
 
 export const animals = [

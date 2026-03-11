@@ -22,7 +22,6 @@ const Photos = () => {
   useEffect(() => {
     fetchPhotos(page, searchQuery);
   }, [page, searchQuery, fetchPhotos]);
-
   return (
     <div className="photos-container">
       <h1>Galería de Fotos</h1>
@@ -36,7 +35,7 @@ const Photos = () => {
           className="search-input"
         />
         <button type="submit" className="search-btn">
-          🔍 Buscar
+           Buscar
         </button>
         {isSearching && (
           <button
