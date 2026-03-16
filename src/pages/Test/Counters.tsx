@@ -3,9 +3,6 @@ import { useState } from "react";
 const Counters = () => {
   const [count, setCount] = useState(0);
 
-  const handleAlert = () => {
-    alert("Button clicked!");
-  };
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -22,9 +19,6 @@ const Counters = () => {
 
   return (
     <div className="container mt-4">
-      <button className="btn btn-primary" onClick={handleAlert}>
-        Click me
-      </button>
 
       <div style={{ marginTop: "20px" }}>
         <h2>Counter: {count}</h2>

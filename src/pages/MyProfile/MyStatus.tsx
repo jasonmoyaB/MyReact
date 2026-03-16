@@ -57,6 +57,16 @@ export const MyStatus = () => {
               <img src={users[2].imageUrl} alt={users[2].name} className="rounded-circle" style={{ width: "30px", height: "30px" }} />
             </td>
           </tr>
+          <tr>
+            <td>{users[3].name}</td>
+            <td>{users[3].LastName}</td>
+            <td>{users[3].email}</td>
+            <td>{users[3].age}</td>
+            <td>{statusOptions[1].label}</td>
+            <td>
+              <img src={users[3].imageUrl} alt={users[3].name} className="rounded-circle" style={{ width: "30px", height: "30px" }} />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
