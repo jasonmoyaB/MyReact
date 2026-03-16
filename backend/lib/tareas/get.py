@@ -3,5 +3,5 @@ from sqlalchemy.orm import Session
 from database import get_db
 from lib.models.tareas import Tarea
 
-def get_tarea(tarea_id: int, db: Session = Depends(get_db)):
+def get_tarea(tarea_id: int, db: Session = Depends(get_db)) -> Tarea | None:
     return db.query(Tarea).filter(Tarea.IdTarea == tarea_id).first()

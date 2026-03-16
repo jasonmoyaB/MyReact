@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime
 import pytz
@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from database import get_db
 from lib.tareas.create import create as create_tarea
+from lib.tareas.get import get_tarea as get_tarea_by_id
 from lib.tareas.list import list_all as list_tareas
 from lib.tareas.update import update as update_tarea
 from lib.tareas.delete import delete as delete_tarea
@@ -49,6 +50,14 @@ def crear_tarea_endpoint(nombre: str, descripcion: str, fecha: str, db: Session 
 @router.get("", response_model=list[TareaResponse])
 def listar_tareas_endpoint(db: Session = Depends(get_db)):
     return list_tareas(db)
+
+@router.get("/{tarea_id}", response_model=TareaResponse)
+def obtener_tarea_endpoint(tarea_id: int, db: Session = Depends(get_db)):
+    tarea = get_tarea_by_id(tarea_id, db)
+    if tarea is None:
+        raise HTTPException(status_code=404, detail="Tarea no encontrada")
+
+    return tarea
 
 @router.delete("/{tarea_id}")
 def eliminar_tarea_endpoint(tarea_id: int, db: Session = Depends(get_db)):

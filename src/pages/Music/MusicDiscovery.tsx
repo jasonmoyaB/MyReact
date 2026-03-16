@@ -6,7 +6,7 @@ import '../../styles/MusicDiscovery.css';
 const MusicDiscovery = () => {
   const [searchInput, setSearchInput] = useState('');
   const { artist, similarArtists, loading, error, searchArtist } = useLastFm();
-
+  // Verificar el usuario actual
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchArtist(searchInput);

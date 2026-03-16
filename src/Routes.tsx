@@ -9,6 +9,7 @@ import { users } from "./components/constants";
 import Weather from "./pages/Weather/Weather";
 import Crypto from "./pages/Crypto/Crypto";
 import Photos from "./pages/Photos/Photos";
+import MusicDiscovery from "./pages/Music/MusicDiscovery";
 
 export const RoutesComponent = () => {
   return (
@@ -87,6 +88,11 @@ export const RoutesComponent = () => {
                     Photos
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/music-discovery">
+                    Music Discovery
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -104,6 +110,7 @@ export const RoutesComponent = () => {
           <Route path="/weather" element={<Weather />} />
           <Route path="/crypto" element={<Crypto />} />
           <Route path="/photos" element={<Photos />} />
+          <Route path="/music-discovery" element={<MusicDiscovery />} />
         </Routes>
       </div>
     </BrowserRouter>
